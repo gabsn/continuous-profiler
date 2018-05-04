@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 )
@@ -49,7 +48,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func flamegraphHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "flamegraph")
+	http.ServeFile(w, r, "./flamegraph.svg")
 }
 
 func main() {
